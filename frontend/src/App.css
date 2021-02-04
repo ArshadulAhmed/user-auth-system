@@ -1,6 +1,10 @@
 *, body{
     font-family: 'Montserrat', sans-serif;
 }
+body{
+    margin: 0px !important;
+    width: 100%;
+}
 table.table_inner {
     border: 1px solid #ccc;
     padding: 1rem;
@@ -13,11 +17,10 @@ thead {
     background: #ccc;
 }
 thead tr th {
-    padding: 10px;
-    color: #771796;
-    letter-spacing: 1px;
-    font-size: .8rem;
-    min-width: 12rem;
+      padding: 10px;
+    color: #5d5d5d;
+    font-size: .7rem;
+    width: auto;
     font-weight: 700;
 }
 tbody {
@@ -26,12 +29,7 @@ tbody {
 tbody tr:nth-child(odd) {
     background: #f1f1f1;
 }
-tbody tr:first-child td {
-    margin-top: 1rem;
-}
-tbody tr td {
-    padding: 0 10px;
-}
+
 
 .header {
     background: #ccc;
@@ -170,4 +168,24 @@ p.pageTitle.Dashboard {
 }
 td img {
     max-width: 50px;
+}
+
+td span {
+    font-weight: 600;
+    line-height: 2;
+}
+
+tr.no_pad td {
+        padding: 0px 3px;
+    width: 100%;
+}
+table{
+    width: 100%;
+}
+
+.innerTable tr:nth-child(odd){
+    background-color: transparent !important;
+}
+.no_pad td tr{
+  background-color: transparent !important;
 }

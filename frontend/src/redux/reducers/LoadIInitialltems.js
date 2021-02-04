@@ -4,7 +4,10 @@ import {
   LOAD_ITEMS_FAIL,
 } from "../utils/types";
 
-const initialState = {};
+const initialState = {
+  isLoading: false,
+  data: null,
+};
 
 export default function (state = initialState, action) {
   switch (action.type) {
@@ -18,7 +21,8 @@ export default function (state = initialState, action) {
     case LOAD_ITEMS_SUCCESS:
       return {
         ...state,
-        ...action.payload,
+        // ...action.payload,
+        data: action.payload,
         isLoading: false,
       };
 

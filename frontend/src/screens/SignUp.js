@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { authSignup, removeItemOnLoad } from "../redux/actions/authentication";
 import { Button } from "../components/CommonComponents";
 import { Link } from "react-router-dom";
-import { DefaultLoading } from "../components/DefaultLoading";
 import { useHistory } from "react-router-dom";
 
 function SignUp(props) {

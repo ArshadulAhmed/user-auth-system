@@ -1,21 +1,36 @@
-import React, { useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { loadItems } from "../redux/actions/loadItems";
-import { DefaultLoading } from "../components/DefaultLoading";
 
 const table_heading = [
   {
-    title: "Product ID",
+    title: "Customer ID",
     key: 1,
   },
   {
-    title: "Title",
+    title: "Name",
     key: 2,
   },
 
   {
-    title: "Image",
+    title: "email",
     key: 3,
+  },
+  {
+    title: "phone",
+    key: 4,
+  },
+  {
+    title: "website",
+    key: 5,
+  },
+  {
+    title: "company",
+    key: 6,
+  },
+  {
+    title: "address",
+    key: 7,
   },
 ];
 
@@ -23,7 +38,6 @@ function Dashboard(props) {
   React.useEffect(() => {
     props.loadItems();
   }, []);
-
   return (
     <React.Fragment>
       <div className="main">
@@ -43,21 +57,77 @@ function Dashboard(props) {
                 </thead>
                 <tbody>
                   {props.homeItems &&
-                    props.homeItems.map((item, index) => (
+                    props.homeItems.map((item) => (
                       <tr key={item.id}>
                         <td>{item.id}</td>
-                        <td>{item.title}</td>
+                        <td>{item.name}</td>
+                        <td>{item.email}</td>
+                        <td>{item.phone}</td>
+                        <td>{item.website}</td>
                         <td>
-                          <img
-                            src={item.thumbnailUrl}
-                            alt={item.title}
-                            title={item.title}
-                            className="table_data_image"
-                          />
+                          <span>Name </span>
+                          <br /> {item.company.name}
+                          <table className="innerTable">
+                            <tr>
+                              <td colSpan={2}>
+                                <span>
+                                  Details
+                                  <br />
+                                </span>
+                                {item.company.catchPhrase}
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <span>Address</span> <br />
+                                {item.company.catchPhrase}
+                              </td>
+                              <td>
+                                <span>
+                                  Locality
+                                  <br />
+                                </span>
+                                {item.company.bs}
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+
+                        <td>
+                          <table className="innerTable">
+                            <tr colSpan={2}>
+                              <td colSpan={2}>{item.address.street}</td>
+                            </tr>
+
+                            <tr>
+                              <td colSpan={2}>
+                                <span>
+                                  suite
+                                  <br />
+                                </span>
+                                {item.address.suite}
+                              </td>
+                            </tr>
+                            <tr className="no_pad">
+                              <td colSpan={1}>
+                                <span>
+                                  city
+                                  <br />
+                                </span>
+                                {item.address.city}
+                              </td>
+                              <td colSpan={1}>
+                                <span>
+                                  zipcode
+                                  <br />
+                                </span>
+                                {item.address.zipcode}
+                              </td>
+                            </tr>
+                          </table>
                         </td>
                       </tr>
                     ))}
-                  )
                 </tbody>
               </table>
             </div>

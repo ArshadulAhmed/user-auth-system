@@ -4,7 +4,6 @@ import { authLogin, removeItemOnLoad } from "../redux/actions/authentication";
 import { useHistory } from "react-router-dom";
 import { Button } from "../components/CommonComponents";
 import { Link } from "react-router-dom";
-import { DefaultLoading } from "../components/DefaultLoading";
 
 function Login(props) {
   const [error, setError] = React.useState(null);
