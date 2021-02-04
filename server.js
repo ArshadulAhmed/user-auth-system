@@ -58,11 +58,17 @@ require("./app/routes/auth.routes")(app);
 require("./app/routes/user.routes")(app);
 
 // set port, listen for requests
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 5000;
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("frontend/build"));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+  });
 }
+
+console.log("Exit point 2");
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
