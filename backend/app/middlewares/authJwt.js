@@ -5,6 +5,7 @@ const User = db.user;
 const Role = db.role;
 
 verifyToken = (req, res, next) => {
+  console.log("req.headers", req.headers);
   let token = req.headers["x-access-token"];
 
   if (!token) {
@@ -29,7 +30,7 @@ isAdmin = (req, res, next) => {
 
     Role.find(
       {
-        _id: { $in: user.roles }
+        _id: { $in: user.roles },
       },
       (err, roles) => {
         if (err) {
@@ -60,7 +61,7 @@ isModerator = (req, res, next) => {
 
     Role.find(
       {
-        _id: { $in: user.roles }
+        _id: { $in: user.roles },
       },
       (err, roles) => {
         if (err) {
@@ -85,6 +86,6 @@ isModerator = (req, res, next) => {
 const authJwt = {
   verifyToken,
   isAdmin,
-  isModerator
+  isModerator,
 };
 module.exports = authJwt;
