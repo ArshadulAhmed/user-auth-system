@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const dbConfig = require("./app/config/db.config");
+const path = require("path");
 
 const app = express();
 
@@ -49,9 +50,9 @@ db.mongoose
   });
 
 // simple route
-app.get("/", (req, res) => {
-  res.json({ message: "Basic user management system" });
-});
+// app.get("/", (req, res) => {
+//   res.json({ message: "Basic user management system" });
+// });
 
 // routes
 require("./app/routes/auth.routes")(app);
