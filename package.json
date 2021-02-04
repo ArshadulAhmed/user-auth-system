@@ -11,6 +11,9 @@
     "start": "node server.js",
     "frontend" : "cd frontend && npm start"
   },
+  "engines": {
+    "node": "12.18.0"
+  },
   "keywords": [
     "node.js",
     "express",
