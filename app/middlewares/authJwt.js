@@ -5,7 +5,6 @@ const User = db.user;
 const Role = db.role;
 
 verifyToken = (req, res, next) => {
-  console.log("req.headers", req.headers);
   let token = req.headers["x-access-token"];
 
   if (!token) {

@@ -18,7 +18,6 @@ const BaseRouter = () => (
     </Switch>
   </React.Fragment>
 );
-// export default BaseRouter;
 
 function mapStateToProps(state) {
   return {};

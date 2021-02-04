@@ -9,7 +9,7 @@ function HomePage(props) {
     <React.Fragment>
       <div className="main">
         <div className="topBar">
-          <p>Home Page</p>
+          <p>Landing Page</p>
         </div>
       </div>
     </React.Fragment>

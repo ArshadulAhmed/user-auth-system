@@ -8,7 +8,11 @@ import {
   USER_LOGIN_START,
   USER_LOGIN_SUCCESS,
   USER_LOGIN_FAIL,
+  USER_LOGED_OUT,
+  REMOVE_STATUS,
+  REMOVE_ITEM_FROM_REDUX,
 } from "../utils/types";
+
 import { baseURL } from "../utils/baseURL";
 
 export const authSignup = (username, email, password) => (
@@ -29,9 +33,10 @@ export const authSignup = (username, email, password) => (
     })
 
     .then((res) => {
+      console.log("res", res.status);
       dispatch({
         type: USER_REGISTRATION_SUCCESS,
-        payload: res.data,
+        payload: { data: res.data, status: res.status },
       });
     })
     .catch((err) => {
@@ -66,4 +71,22 @@ export const authLogin = (username, password) => (dispatch, getState) => {
         type: USER_LOGIN_FAIL,
       });
     });
+};
+
+export const logOutUser = () => (dispatch) => {
+  dispatch({
+    type: USER_LOGED_OUT,
+  });
+};
+
+export const removeStatus = () => (dispatch) => {
+  dispatch({
+    type: REMOVE_STATUS,
+  });
+};
+
+export const removeItemOnLoad = () => (dispatch) => {
+  dispatch({
+    type: REMOVE_ITEM_FROM_REDUX,
+  });
 };

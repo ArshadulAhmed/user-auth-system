@@ -22,8 +22,17 @@ const Role = db.role;
 //
 
 db.mongoose
+  // .connect(
+  //   `mongodb+srv://${dbConfig.DB_USER}:${dbConfig.DB_PASS}@user-management-system.b1y6w.mongodb.net/testindDb?retryWrites=true&w=majority`,
+  //   {
+  //     useNewUrlParser: true,
+  //     useUnifiedTopology: true,
+  //   }
+  // )
+
   .connect(
-    `mongodb+srv://${dbConfig.DB_USER}:${dbConfig.DB_PASS}@user-management-system.b1y6w.mongodb.net/testindDb?retryWrites=true&w=majority`,
+    process.env.MONGODB_URI ||
+      `mongodb+srv://${dbConfig.DB_USER}:${dbConfig.DB_PASS}@user-management-system.b1y6w.mongodb.net/testindDb?retryWrites=true&w=majority`,
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -50,6 +59,11 @@ require("./app/routes/user.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("frontend/build"));
+}
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
