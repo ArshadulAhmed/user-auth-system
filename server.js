@@ -32,7 +32,7 @@ db.mongoose
 
   .connect(
     process.env.MONGODB_URI ||
-      `mongodb+srv://${dbConfig.DB_USER}:${dbConfig.DB_PASS}@user-management-system.b1y6w.mongodb.net/testindDb?retryWrites=true&w=majority`,
+      `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@user-management-system.b1y6w.mongodb.net/testindDb?retryWrites=true&w=majority`,
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
