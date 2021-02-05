@@ -54,7 +54,7 @@ require("./app/routes/auth.routes")(app);
 require("./app/routes/user.routes")(app);
 
 // set port, listen for requests
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8000;
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("frontend/build"));
